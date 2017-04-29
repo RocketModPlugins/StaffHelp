@@ -21,7 +21,7 @@ namespace coolpuppy24.staffhelp
 
         protected override void Load()
         {
-            Instance = this;
+            Instance = this; 
 
             Rocket.Core.Logging.Logger.LogWarning("[StaffHelp] Made by: Coolpuppy24");
             Rocket.Core.Logging.Logger.LogWarning("[StaffHelp] Chat Color: " + Configuration.Instance.ChatColorName);

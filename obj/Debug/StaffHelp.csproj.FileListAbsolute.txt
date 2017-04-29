@@ -1,0 +1,2 @@
+C:\Users\Trevor\Desktop\Codies\Unturned\Unturned Plugins\Plugin Template - Copy\bin\Release\StaffHelp.dll
+C:\Users\Trevor\Desktop\Codies\Unturned\Unturned Plugins\Plugin Template - Copy\obj\Debug\StaffHelp.dll

@@ -3,6 +3,7 @@ using Rocket.API.Extensions;
 using Rocket.Core.Logging;
 using Rocket.Unturned.Chat;
 using Rocket.Unturned.Player;
+using SDG.Unturned;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,13 +68,7 @@ namespace coolpuppy24.staffhelp
 
             string message = command.GetParameterString(0);
 
-            foreach (UnturnedPlayer staffmems in Main.Instance.Players())
-            {
-                if (staffmems.HasPermission("staffhelp.receive"))
-                {
-                    UnturnedChat.Say(staffmems, "[StaffHelp] " + player.CharacterName + ": " + message, UnturnedChat.GetColorFromName(Main.Instance.Configuration.Instance.ChatColorName, Color.red));
-                }
-            }
+            Provider.clients.ConvertAll(UnturnedPlayer.FromSteamPlayer).FindAll(x => x.HasPermission("staffhelp.receive")).ForEach(staffmems => UnturnedChat.Say(staffmems, $"[StaffHelp] {player.CharacterName}: {message}", UnturnedChat.GetColorFromName(Main.Instance.Configuration.Instance.ChatColorName, Color.red)));
         }
     }
 }

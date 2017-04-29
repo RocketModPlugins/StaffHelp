@@ -32,18 +32,5 @@ namespace coolpuppy24.staffhelp
         {
             Rocket.Core.Logging.Logger.Log("Unload");
         }
-
-        public List<UnturnedPlayer> Players()
-        {
-            List<UnturnedPlayer> list = new List<UnturnedPlayer>();
-
-            foreach (SteamPlayer player in Provider.clients)
-            {
-                UnturnedPlayer p = UnturnedPlayer.FromSteamPlayer(player);
-                list.Add(p);
-            }
-
-            return list;
-        }
     }
 }

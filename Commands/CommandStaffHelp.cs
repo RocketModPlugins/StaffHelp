@@ -31,7 +31,7 @@ namespace StaffHelp.Commands
             string message = string.Join(" ", context.Parameters.ToArray());
 
             List<IUser> receivers = new List<IUser>();
-            foreach (var user in userManager.Users)
+            foreach (var user in userManager.OnlineUsers)
             {
                 if(permissionManager.CheckPermission(user, "staffhelp.receive") != PermissionResult.Grant)
                     continue;

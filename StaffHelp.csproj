@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net35;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>StaffHelp</AssemblyName>
     <RootNamespace>StaffHelp</RootNamespace>
     <OutputType>Library</OutputType>
@@ -20,10 +20,8 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+  </PropertyGroup> 
   <ItemGroup>
-    <PackageReference Include="Rocket.Core" Version="5.0.0.566">
-        <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-	</PackageReference>
+    <PackageReference Include="Rocket.Core" Version="5.0.0.669" />
   </ItemGroup> 
 </Project>

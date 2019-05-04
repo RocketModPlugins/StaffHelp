@@ -7,6 +7,7 @@ namespace StaffHelp
     {
         public StaffHelpPlugin(IDependencyContainer container) : base("StaffHelp", container)
         {
+            
         }
     }
 }

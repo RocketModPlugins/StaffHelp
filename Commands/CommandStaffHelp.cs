@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using Rocket.API.Commands;
 using Rocket.API.Permissions;
 using Rocket.API.User;
@@ -18,27 +19,25 @@ namespace StaffHelp.Commands
         public string Syntax => "<message>";
         public IChildCommand[] ChildCommands => null;
 
-        public bool SupportsUser(Type user)
-        {
-            return true;
-        }
+        public bool SupportsUser(IUser user) => true;
 
-        public void Execute(ICommandContext context)
+        public async Task ExecuteAsync(ICommandContext context)
         {
             var userManager = context.Container.Resolve<IUserManager>();
             var permissionManager = context.Container.Resolve<IPermissionProvider>();
+            var permissionChecker = context.Container.Resolve<IPermissionChecker>;
 
             string message = string.Join(" ", context.Parameters.ToArray());
 
             List<IUser> receivers = new List<IUser>();
-            foreach (var user in userManager.OnlineUsers)
+            foreach (var user in userManager.)
             {
-                if(permissionManager.CheckPermission(user, "staffhelp.receive") != PermissionResult.Grant)
+                if(permissionChecker.CheckPermission(user, "staffhelp.receive") != PermissionResult.Grant)
                     continue;
                 receivers.Add(user);
             }
 
-            userManager.Broadcast(context.User, receivers, $"[StaffHelp] {context.User.Name}: {message}", Color.Red);
+            await userManager.BroadcastAsync(context.User, receivers, $"[StaffHelp] {context.User.UserName}: {message}", Color.Red);
         }
     }
 }
